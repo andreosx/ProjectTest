@@ -28,7 +28,7 @@ class DetailItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_item)
 
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
 
         idEvent = intent.getIntExtra("idEvent",0)
 
@@ -36,7 +36,7 @@ class DetailItemActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.getItemId()) {
+        return when (item.itemId) {
             android.R.id.home -> {
                 finish()
                 true
