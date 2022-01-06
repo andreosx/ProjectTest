@@ -4,4 +4,6 @@
     <string name="txt_cancel">Cancelar</string>
     <string name="txt_enter_email">E-mail</string>
     <string name="txt_enter_name">Nome</string>
+    <string name="txt_message_checkin_success">Checkin realizado com sucesso!</string>
+    <string name="txt_message_error">Algo deu errado, tente novamente mais tarde.</string>
 </resources>

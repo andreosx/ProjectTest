@@ -3,7 +3,6 @@ package com.test.projecttest.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,13 +36,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun getEvents() {
         loader(50)
-        viewModel.getEvents().observe(this, Observer { resource ->
+        viewModel.getEvents().observe(this, { resource ->
             resource.data?.let {
                 loader(100)
                 adapter.update(it) }
             resource.error?.let {
                 loader(100)
-                showError(it)
+                showError(getString(R.string.txt_message_error))
             }
         })
     }

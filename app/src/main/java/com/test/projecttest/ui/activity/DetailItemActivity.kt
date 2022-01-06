@@ -4,15 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.test.projecttest.R
 import com.test.projecttest.model.EventItem
 import com.test.projecttest.repository.EventRepository
-import com.test.projecttest.ui.activity.extension.loadImage
-import com.test.projecttest.ui.activity.extension.showError
-import com.test.projecttest.ui.activity.extension.toDateFormatted
-import com.test.projecttest.ui.activity.extension.toMoneyFormat
+import com.test.projecttest.ui.activity.extension.*
 import com.test.projecttest.ui.viewmodel.EventItemViewModel
 import com.test.projecttest.ui.viewmodel.factory.EventItemViewModelFactory
 import kotlinx.android.synthetic.main.activity_detail_item.*
@@ -25,7 +21,7 @@ class DetailItemActivity : AppCompatActivity() {
         ViewModelProvider(this, EventItemViewModelFactory(EventRepository())).get(EventItemViewModel::class.java)
     }
 
-    var idEvent:Int = 0
+    private var idEvent:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,28 +34,28 @@ class DetailItemActivity : AppCompatActivity() {
 
     private fun getEventItem(idEvent: Int) {
         loader(50)
-        viewModel.getEventItem(idEvent).observe(this, Observer { resource ->
+        viewModel.getEventItem(idEvent).observe(this, { resource ->
             resource.data?.let {
                 loader(100)
                 setEvent(it)
             }
             resource.error?.let {
                 loader(100)
-                showError(it)
+                showError(getString(R.string.txt_message_error))
             }
         })
     }
 
     private fun postCheckin(idEvent: Int, name: String, email: String) {
         loader(50)
-        viewModel.setCheckin(idEvent,name,email).observe(this, Observer { resource ->
+        viewModel.setCheckin(idEvent,name,email).observe(this, { resource ->
             resource.data?.let {
                 loader(100)
-                showError(it.code.toString())
+                showSuccess(getString(R.string.txt_message_checkin_success))
             }
             resource.error?.let {
                 loader(100)
-                showError(it)
+                showError(getString(R.string.txt_message_error))
             }
         })
     }

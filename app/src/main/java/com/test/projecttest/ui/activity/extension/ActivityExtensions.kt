@@ -1,12 +1,12 @@
 package com.test.projecttest.ui.activity.extension
 
 import android.app.Activity
-import android.widget.Toast
+import com.shashank.sony.fancytoastlib.FancyToast
 
 fun Activity.showError(message: String) {
-    Toast.makeText(
-        this,
-        message,
-        Toast.LENGTH_LONG
-    ).show()
+    FancyToast.makeText(this,message,FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show()
+}
+
+fun Activity.showSuccess(message: String) {
+    FancyToast.makeText(this,message,FancyToast.LENGTH_LONG,FancyToast.SUCCESS,false).show()
 }
