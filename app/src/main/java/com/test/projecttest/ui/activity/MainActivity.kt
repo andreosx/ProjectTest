@@ -15,7 +15,7 @@ import com.test.projecttest.ui.activity.extension.showError
 import com.test.projecttest.ui.viewmodel.EventViewModel
 import com.test.projecttest.ui.viewmodel.factory.EventViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.loading_view.*
+import kotlinx.android.synthetic.main.view_loading.*
 
 class MainActivity : AppCompatActivity() {
 

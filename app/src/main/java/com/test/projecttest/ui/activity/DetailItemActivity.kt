@@ -16,8 +16,8 @@ import com.test.projecttest.ui.activity.extension.toMoneyFormat
 import com.test.projecttest.ui.viewmodel.EventItemViewModel
 import com.test.projecttest.ui.viewmodel.factory.EventItemViewModelFactory
 import kotlinx.android.synthetic.main.activity_detail_item.*
-import kotlinx.android.synthetic.main.loading_view.*
 import kotlinx.android.synthetic.main.view_dialog.view.*
+import kotlinx.android.synthetic.main.view_loading.*
 
 class DetailItemActivity : AppCompatActivity() {
 
