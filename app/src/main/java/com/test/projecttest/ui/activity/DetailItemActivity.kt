@@ -2,6 +2,7 @@ package com.test.projecttest.ui.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -27,9 +28,21 @@ class DetailItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_item)
 
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+
         idEvent = intent.getIntExtra("idEvent",0)
 
         getEventItem(idEvent)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.getItemId()) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun getEventItem(idEvent: Int) {
