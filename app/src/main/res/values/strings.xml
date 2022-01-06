@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Teste Sicred</string>
+    <string name="txt_checkin">Checkin</string>
+    <string name="txt_cancel">Cancelar</string>
+    <string name="txt_enter_email">E-mail</string>
+    <string name="txt_enter_name">Nome</string>
+</resources>
